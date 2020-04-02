@@ -19,3 +19,29 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 }
 
+// Search Delegate
+
+extension ViewController: UISearchBarDelegate {
+    func SearchBarButtonClicked(_ searchBar: UISearchBar) {
+        dismissKeyboard()
+        
+        guard let searchText = searchBar.text, !searchText.isEmpty else {
+            return
+        }
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        queryService.getSearchResults(searchTerm: searchText) { [weak self] results, errorMessage in UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            
+            if let results = results {
+                self?.searchResults = results
+                //self?.tableView.reloadData()
+                //self?.tableView.setContentOffset(CGPoint.zero, animated: false)
+            }
+            
+            if !errorMessage.isEmpty {
+                print("Search Error: " + errorMessage)
+            }
+        }
+    }
+}
