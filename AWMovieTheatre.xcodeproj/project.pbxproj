@@ -14,6 +14,7 @@
 		E3F104CB243668D4006EFEAF /* AWMovieTheatre.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E3F104C9243668D4006EFEAF /* AWMovieTheatre.xcdatamodeld */; };
 		E3F104CD243668D5006EFEAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3F104CC243668D5006EFEAF /* Assets.xcassets */; };
 		E3F104D0243668D5006EFEAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3F104CE243668D5006EFEAF /* LaunchScreen.storyboard */; };
+		E3F104D824367D7D006EFEAF /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F104D724367D7D006EFEAF /* QueryService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E3F104CC243668D5006EFEAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3F104CF243668D5006EFEAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3F104D1243668D5006EFEAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3F104D724367D7D006EFEAF /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				E3F104C0243668D4006EFEAF /* AppDelegate.swift */,
 				E3F104C2243668D4006EFEAF /* SceneDelegate.swift */,
 				E3F104C4243668D4006EFEAF /* ViewController.swift */,
+				E3F104D724367D7D006EFEAF /* QueryService.swift */,
 				E3F104C6243668D4006EFEAF /* Main.storyboard */,
 				E3F104CC243668D5006EFEAF /* Assets.xcassets */,
 				E3F104CE243668D5006EFEAF /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 			files = (
 				E3F104C5243668D4006EFEAF /* ViewController.swift in Sources */,
 				E3F104C1243668D4006EFEAF /* AppDelegate.swift in Sources */,
+				E3F104D824367D7D006EFEAF /* QueryService.swift in Sources */,
 				E3F104C3243668D4006EFEAF /* SceneDelegate.swift in Sources */,
 				E3F104CB243668D4006EFEAF /* AWMovieTheatre.xcdatamodeld in Sources */,
 			);

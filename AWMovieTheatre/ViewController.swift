@@ -6,10 +6,14 @@
 //  Copyright © 2020 Aaron Wolfe. All rights reserved.
 //
 
+import AVFoundation
+import AVKit
 import UIKit
 
 class ViewController: UIViewController {
 
+    let queryService = QueryService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -17,6 +21,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+
+
+  @objc func dismissKeyboard() {
+    searchBar.resignFirstResponder()
+  }
 }
 
 // Search Delegate
