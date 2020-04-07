@@ -128,6 +128,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     if !errorMessage.isEmpty {
                         print("Search Error: " + errorMessage)
                     }
+                    
                 }
                 self.save(term: searchText)
         //        func searchBarTextDidBeginEditing(for searchController: UISearchController) {
@@ -138,7 +139,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //          view.removeGestureRecognizer(tapRecognizer)
         //        }
                 
-                print("search function ended, \(searchResults)")
+        print("search function ended, \(self.searchResults)")
             }
     }
    
