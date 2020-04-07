@@ -14,6 +14,8 @@
 		E39F5C32243CC5DE008D9015 /* AWSwiftMovieSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E39F5C30243CC5DE008D9015 /* AWSwiftMovieSearch.xcdatamodeld */; };
 		E39F5C34243CC5E1008D9015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E39F5C33243CC5E1008D9015 /* Assets.xcassets */; };
 		E39F5C37243CC5E1008D9015 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E39F5C35243CC5E1008D9015 /* LaunchScreen.storyboard */; };
+		E39F5C3F243CC62B008D9015 /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F5C3E243CC62B008D9015 /* QueryService.swift */; };
+		E39F5C41243CC672008D9015 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F5C40243CC672008D9015 /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		E39F5C33243CC5E1008D9015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E39F5C36243CC5E1008D9015 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E39F5C38243CC5E1008D9015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E39F5C3E243CC62B008D9015 /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
+		E39F5C40243CC672008D9015 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 			children = (
 				E39F5C27243CC5DE008D9015 /* AppDelegate.swift */,
 				E39F5C29243CC5DE008D9015 /* SceneDelegate.swift */,
+				E39F5C3E243CC62B008D9015 /* QueryService.swift */,
+				E39F5C40243CC672008D9015 /* MovieCell.swift */,
 				E39F5C2B243CC5DE008D9015 /* ViewController.swift */,
 				E39F5C2D243CC5DE008D9015 /* Main.storyboard */,
 				E39F5C33243CC5E1008D9015 /* Assets.xcassets */,
@@ -143,6 +149,8 @@
 			files = (
 				E39F5C2C243CC5DE008D9015 /* ViewController.swift in Sources */,
 				E39F5C28243CC5DE008D9015 /* AppDelegate.swift in Sources */,
+				E39F5C41243CC672008D9015 /* MovieCell.swift in Sources */,
+				E39F5C3F243CC62B008D9015 /* QueryService.swift in Sources */,
 				E39F5C32243CC5DE008D9015 /* AWSwiftMovieSearch.xcdatamodeld in Sources */,
 				E39F5C2A243CC5DE008D9015 /* SceneDelegate.swift in Sources */,
 			);
