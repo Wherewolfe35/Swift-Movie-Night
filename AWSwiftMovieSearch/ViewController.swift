@@ -94,14 +94,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
           NSEntityDescription.entity(forEntityName: "PastSearches",
                                      in: managedContext)!
         
-        let term = NSManagedObject(entity: entity,
+        let searchTerm = NSManagedObject(entity: entity,
                                      insertInto: managedContext)
         
-        term.setValue(term, forKeyPath: "term")
+        searchTerm.setValue(term, forKeyPath: "term")
         
         do {
           try managedContext.save()
-          pastSearches.append(term)
+          pastSearches.append(searchTerm)
         } catch let error as NSError {
           print("Could not save. \(error), \(error.userInfo)")
         }

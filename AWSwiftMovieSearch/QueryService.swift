@@ -6,7 +6,7 @@
 //  Copyright © 2020 Aaron Wolfe. All rights reserved.
 //
 
-import Foundation.NSURL
+import Foundation
 
 // JSON object
 class Movie {
@@ -38,6 +38,7 @@ class QueryService {
     typealias QueryResult = ([Movie]?, String) -> Void
     
     func getSearchResults(searchTerm: String, completion: @escaping QueryResult){
+        print("Searching database for \(searchTerm)")
         
         dataTask?.cancel()
         
@@ -53,21 +54,20 @@ class QueryService {
             do {
                 self?.dataTask = nil
             }
-        }
-//        if let error = error {
-//            self?.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
-//        } else if
-//            let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
-//            self?.updateSearchResults(data)
-//        }
+        if let error = error {
+            self?.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
+        } else if
+            let data = data,
+            let response = response as? HTTPURLResponse, response.statusCode == 200 {
+            self?.updateSearchResults(data)
+        
         
         DispatchQueue.main.async {
-            completion(self.movies, self.errorMessage )
+            completion(self?.movies, self?.errorMessage ?? "" )
+          }
         }
+      }
             dataTask?.resume()
-    }
-    DispatchQueue.main.async {
-      completion(self.movies, self.errorMessage)
     }
   }
     
