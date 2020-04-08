@@ -6,6 +6,7 @@
 //  Copyright © 2020 Aaron Wolfe. All rights reserved.
 //
 
+import Foundation
 import Foundation.NSURL
 
 // JSON object
@@ -15,12 +16,14 @@ class Movie {
     let overview: String
     let releaseDate: String
     let backdropPath: String
+    let index: Int
     
-    init(title: String, overview: String, releaseDate: String, backdropPath: String) {
+    init(title: String, overview: String, releaseDate: String, backdropPath: String, index: Int) {
         self.title = title
         self.overview = overview
         self.releaseDate = releaseDate
         self.backdropPath = backdropPath
+        self.index = index
     }
 }
 
@@ -38,11 +41,12 @@ class QueryService {
     typealias QueryResult = ([Movie]?, String) -> Void
     
     func getSearchResults(searchTerm: String, completion: @escaping QueryResult){
+        print("Searching database for \(searchTerm)")
         
         dataTask?.cancel()
         
         if var urlComponents = URLComponents(string: "https://api.themoviedb.org/3/search") {
-            urlComponents.query = "movie?api_key=\(apiKey)&query=\(searchTerm)"
+            urlComponents.query = "/movie?api_key=\(apiKey)&query=\(searchTerm)&page=1"
         
         guard let url = urlComponents.url else {
             return
@@ -50,24 +54,23 @@ class QueryService {
         
         dataTask = defaultSession.dataTask(with: url) {
             [weak self] data, response, error in
-            do {
+            defer {
                 self?.dataTask = nil
             }
-        }
-//        if let error = error {
-//            self?.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
-//        } else if
-//            let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
-//            self?.updateSearchResults(data)
-//        }
+        if let error = error {
+            self?.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
+        } else if
+            let data = data,
+            let response = response as? HTTPURLResponse, response.statusCode == 200 {
+            self?.updateSearchResults(data)
+        
         
         DispatchQueue.main.async {
-            completion(self.movies, self.errorMessage )
+            completion(self?.movies, self?.errorMessage ?? "" )
+          }
         }
+      }
             dataTask?.resume()
-    }
-    DispatchQueue.main.async {
-      completion(self.movies, self.errorMessage)
     }
   }
     
@@ -95,7 +98,7 @@ class QueryService {
           let backdropPath = movieDictionary["backdropPath"] as? String,
           let title = movieDictionary["title"] as? String,
           let overview = movieDictionary["overview"] as? String {
-            movies.append(Movie(title: title, overview: overview, releaseDate: releaseDate, backdropPath: backdropPath))
+            movies.append(Movie(title: title, overview: overview, releaseDate: releaseDate, backdropPath: backdropPath, index: index))
             index += 1
         } else {
           errorMessage += "Problem parsing trackDictionary\n"

@@ -94,14 +94,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
           NSEntityDescription.entity(forEntityName: "PastSearches",
                                      in: managedContext)!
         
-        let term = NSManagedObject(entity: entity,
+        let searchTerm = NSManagedObject(entity: entity,
                                      insertInto: managedContext)
         
-        term.setValue(term, forKeyPath: "term")
+        searchTerm.setValue(term, forKeyPath: "term")
         
         do {
           try managedContext.save()
-          pastSearches.append(term)
+          pastSearches.append(searchTerm)
         } catch let error as NSError {
           print("Could not save. \(error), \(error.userInfo)")
         }
@@ -128,6 +128,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     if !errorMessage.isEmpty {
                         print("Search Error: " + errorMessage)
                     }
+                    
                 }
                 self.save(term: searchText)
         //        func searchBarTextDidBeginEditing(for searchController: UISearchController) {
@@ -138,7 +139,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //          view.removeGestureRecognizer(tapRecognizer)
         //        }
                 
-                print("search function ended, \(searchResults)")
+        print("search function ended, \(self.searchResults)")
             }
     }
    
